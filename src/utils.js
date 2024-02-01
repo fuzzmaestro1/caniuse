@@ -13,7 +13,7 @@ export function parseCaniuseData(feature, browsers) {
   browsers.forEach(function(browser) {
     support[browser] = {}
     for (var info in feature.stats[browser]) {
-      letters = feature.stats[browser][info].replace(/#\d+/, "").trim().split(" ")
+      letters = feature.stats[browser][info].replace(/#\s+/, "").trim().split(" ")
       info = parseFloat(info.split("-")[0]) //if info is a range, take the left
       if (isNaN(info)) continue
       for (var i = 0; i < letters.length ; i++) {
